@@ -76,7 +76,7 @@ rm -rfd cbpp-ui-theme/cbpp-ui-theme/data/usr/share/themes/CBPP/xf*
 cp -rfd cbpp-ui-theme/cbpp-ui-theme/data/usr/share/themes/* /usr/share/themes
 rm -rfd /usr/share/backgrounds
 mkdir -p /usr/share/backgrounds
-wget -qO config.zip https://github.com/YurinDoctrine/.config/archive/refs/heads/artix.zip && unzip config.zip && mv .config-artix .config
+wget -qO config.zip https://github.com/susukin0/.config/archive/refs/heads/artix.zip && unzip config.zip && mv .config-artix .config
 rm -rfd /home/$MY_USERNAME/*
 rm -rfd /etc/skel/*
 rm -rfd /root/*
