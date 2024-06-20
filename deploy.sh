@@ -310,35 +310,6 @@ vm.watermark_scale_factor = 1
 vm.memory_failure_recovery = 0
 vm.max_map_count = 262144
 min_perf_pct = 100
-kernel.io_delay_type = 3
-kernel.task_delayacct = 0
-kernel.sysrq = 0
-kernel.watchdog_thresh = 60
-kernel.nmi_watchdog = 0
-kernel.seccomp = 0
-kernel.timer_migration = 0
-kernel.core_pipe_limit = 0
-kernel.core_uses_pid = 1
-kernel.hung_task_timeout_secs = 0
-kernel.numa_balancing = 1
-kernel.panic = 0
-kernel.panic_on_oops = 0
-kernel.perf_cpu_time_max_percent = 1
-kernel.printk_devkmsg = off
-kernel.compat-log = 0
-kernel.yama.ptrace_scope = 1
-kernel.stack_tracer_enabled = 0
-kernel.random.urandom_min_reseed_secs = 120
-kernel.perf_event_paranoid = -1
-kernel.perf_event_max_contexts_per_stack = 2
-kernel.perf_event_max_sample_rate = 1
-kernel.kptr_restrict = 0
-kernel.randomize_va_space = 0
-kernel.exec-shield = 0
-kernel.kexec_load_disabled = 1
-kernel.acpi_video_flags = 0
-kernel.unknown_nmi_panic = 0
-kernel.panic_on_unrecovered_nmi = 0
 dev.i915.perf_stream_paranoid = 0
 dev.scsi.logging_level = 0
 debug.exception-trace = 0
@@ -386,57 +357,7 @@ fs.protected_hardlinks=1
 fs.protected_symlinks=1
 fs.protected_fifos=2
 fs.protected_regular=2
-fs.suid_dumpable=0
-kernel.unprivileged_bpf_disabled=1
-kernel.dmesg_restrict=1
-net.ipv6.conf.default.disable_ipv6=1
-net.ipv4.conf.default.rp_filter=1
-net.ipv4.conf.all.rp_filter=1
-net.ipv4.conf.all.secure_redirects=0
-net.ipv4.conf.all.send_redirects=0
-net.ipv4.conf.all.accept_redirects=0
-net.ipv4.conf.all.accept_source_route=0
-net.ipv4.conf.all.arp_evict_nocarrier=1
-net.ipv4.conf.all.arp_ignore=1
-net.ipv4.conf.all.log_martians=0
-net.ipv4.tcp_abc=0
-net.ipv4.tcp_tw_reuse=1
-net.ipv4.tcp_orphan_retries=2
-net.ipv4.tcp_syncookies=1
-net.ipv4.tcp_abort_on_overflow=1
-net.ipv4.tcp_tw_recycle=1
-net.ipv4.tcp_retries2=5
-net.ipv4.tcp_syn_retries=5
-net.ipv4.tcp_fin_timeout=15
-net.ipv4.tcp_fack=0
-net.ipv4.tcp_dsack=0
-net.ipv4.tcp_sack=0
-net.ipv4.tcp_workaround_signed_windows=1
-net.ipv4.tcp_ecn_fallback=0
-net.ipv4.tcp_app_win=0
-net.ipv4.tcp_thin_linear_timeouts=1
-net.ipv4.tcp_rfc1337=1
-net.ipv4.tcp_adv_win_scale=1
-net.ipv4.udp_rmem_min=8192
-net.ipv4.udp_wmem_min=8192
-net.ipv4.udp_early_demux=1
-net.ipv4.icmp_echo_ignore_all=1
-net.ipv4.route.flush=1
-net.ipv4.ipfrag_time=0
-net.ipv4.ipfrag_secret_interval=0
-net.core.default_qdisc=fq
-net.core.busy_poll=50
-net.core.busy_read=50
-net.core.high_order_alloc_disable=0
-net.core.warnings=0
-net.core.tstamp_allow_data=1
-net.core.enable_tcp_offloading=1
-net.core.netdev_tstamp_prequeue=1
-net.core.netdev_max_backlog=65535
-net.core.somaxconn=65535
-net.core.optmem_max=65535
-net.core.rmem_max=6291456
-net.core.wmem_max=6291456" >/lib/sysctl.d/99-swappiness.conf
+fs.suid_dumpable=0" >/lib/sysctl.d/99-swappiness.conf
 sysctl -w vm.compact_memory=1 && sysctl -w vm.drop_caches=3 && sysctl -w vm.drop_caches=2
 
 mkdir -p /etc/udev/rules.d
@@ -524,10 +445,10 @@ mkinitcpio -P
 
 # Install boot loader
 if [ "$ENCRYPTED" = "y" ]; then
-  sed -i -e "s|GRUB_CMDLINE_LINUX_DEFAULT=.*|GRUB_CMDLINE_LINUX_DEFAULT=\"cryptdevice=$PART2:root root=/dev/mapper/root quiet rootfstype=ext4,btrfs,xfs,f2fs biosdevname=0 nowatchdog noautogroup noresume default_hugepagesz=2M hugepagesz=2M hugepages=256 zswap.enabled=1 zswap.compressor=lz4 zswap.max_pool_percent=10 zswap.zpool=zsmalloc workqueue.power_efficient=1 pcie_aspm=force pci=pcie_bus_perf,noaer rd.plymouth=0 plymouth.enable=0 plymouth.ignore-serial-consoles logo.nologo consoleblank=0 vt.global_cursor_default=0 rd.systemd.show_status=auto loglevel=0 rd.udev.log_level=0 udev.log_priority=0 audit=0 nosoftlockup selinux=0 enforcing=0 mce=0 mds=full,nosmt vsyscall=none no_timer_check skew_tick=1 clocksource=tsc tsc=perfect nohz=on rcu_nocb_poll irqpoll threadirqs irqaffinity=0 noirqdebug iomem=relaxed kthread_cpus=0 sched_policy=1 idle=nomwait noreplace-smp noatime boot_delay=0 io_delay=none rootdelay=0 elevator=noop realloc init_on_alloc=0 init_on_free=0 pti=on no_stf_barrier mitigations=off ftrace_enabled=0 fsck.repair=no fsck.mode=skip\"|g" /etc/default/grub
+  sed -i -e "s|GRUB_CMDLINE_LINUX_DEFAULT=.*|GRUB_CMDLINE_LINUX_DEFAULT=\"cryptdevice=$PART2:root root=/dev/mapper/root quiet rootfstype=ext4,btrfs,xfs,f2fs biosdevname=0 nowatchdog noautogroup noresume zswap.enabled=1 zswap.compressor=lz4 zswap.max_pool_percent=20 zswap.zpool=zsmalloc workqueue.power_efficient=1 pci=pcie_bus_perf,noaer rd.plymouth=0 plymouth.enable=0 plymouth.ignore-serial-consoles logo.nologo consoleblank=0 vt.global_cursor_default=0 rd.systemd.show_status=auto loglevel=0 rd.udev.log_level=0 udev.log_priority=0 audit=0 nosoftlockup selinux=0 enforcing=0 mce=0 mds=full,nosmt vsyscall=none irqpoll threadirqs irqaffinity=0 noirqdebug iomem=relaxed noatime boot_delay=0 io_delay=none rootdelay=0 elevator=noop realloc init_on_alloc=0 init_on_free=0 no_stf_barrier mitigations=off ftrace_enabled=0 fsck.repair=no fsck.mode=skip\"|g" /etc/default/grub
   sed -i -e '/GRUB_ENABLE_CRYPTODISK=y/s/^#//g' /etc/default/grub
 else
-  sed -i -e 's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet rootfstype=ext4,btrfs,xfs,f2fs biosdevname=0 nowatchdog noautogroup noresume default_hugepagesz=2M hugepagesz=2M hugepages=256 zswap.enabled=1 zswap.compressor=lz4 zswap.max_pool_percent=10 zswap.zpool=zsmalloc workqueue.power_efficient=1 pcie_aspm=force pci=pcie_bus_perf,noaer rd.plymouth=0 plymouth.enable=0 plymouth.ignore-serial-consoles logo.nologo consoleblank=0 vt.global_cursor_default=0 rd.systemd.show_status=auto loglevel=0 rd.udev.log_level=0 udev.log_priority=0 audit=0 nosoftlockup selinux=0 enforcing=0 mce=0 mds=full,nosmt vsyscall=none no_timer_check skew_tick=1 clocksource=tsc tsc=perfect nohz=on rcu_nocb_poll irqpoll threadirqs irqaffinity=0 noirqdebug iomem=relaxed kthread_cpus=0 sched_policy=1 idle=nomwait noreplace-smp noatime boot_delay=0 io_delay=none rootdelay=0 elevator=noop realloc init_on_alloc=0 init_on_free=0 pti=on no_stf_barrier mitigations=off ftrace_enabled=0 fsck.repair=no fsck.mode=skip"/' /etc/default/grub
+  sed -i -e 's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet rootfstype=ext4,btrfs,xfs,f2fs biosdevname=0 nowatchdog noautogroup noresume zswap.enabled=1 zswap.compressor=lz4 zswap.max_pool_percent=20 zswap.zpool=zsmalloc workqueue.power_efficient=1 pci=pcie_bus_perf,noaer rd.plymouth=0 plymouth.enable=0 plymouth.ignore-serial-consoles logo.nologo consoleblank=0 vt.global_cursor_default=0 rd.systemd.show_status=auto loglevel=0 rd.udev.log_level=0 udev.log_priority=0 audit=0 nosoftlockup selinux=0 enforcing=0 mce=0 mds=full,nosmt vsyscall=none irqpoll threadirqs irqaffinity=0 noirqdebug iomem=relaxed noatime boot_delay=0 io_delay=none rootdelay=0 elevator=noop realloc init_on_alloc=0 init_on_free=0 no_stf_barrier mitigations=off ftrace_enabled=0 fsck.repair=no fsck.mode=skip"/' /etc/default/grub
 fi
 
 sed -i -e 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=1/' /etc/default/grub
