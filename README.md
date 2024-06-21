@@ -19,7 +19,7 @@ with some parts depending on the chosen configuration:
 3. Install base packages
 4. Install kernel
 5. Setup grub
-6. Ensure minimal working Artix with [dotfiles](https://github.com/susukin0/.config/tree/artix)
+6. Ensure minimal working Artix with [dotfiles](https://github.com/YurinDoctrine/.config/tree/artix)
 
 ### Preinstallation
 
@@ -41,7 +41,7 @@ connmanctl # In ConnMan, use respectively: `agent on`, `enable wifi`, `scan wifi
 ```
 3. Run the script as root:
 ```
-bash <(curl -s https://raw.githubusercontent.com/YurinDoctrine/deploy-artix/main/setup.sh)
+bash <(curl -s https://raw.githubusercontent.com/susukin0/deploy-artix/main/setup.sh)
 ```
 4. Once everything finishes, `reboot` or `poweroff` then remove the installation media and boot into Artix (the post-installation networking is done with wpa_supplicant).
 
