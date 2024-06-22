@@ -1,0 +1,4 @@
+##bluetooth 
+sudo ln -s /etc/runit/sv/bluetoothd /etc/runit/runsvdir/current/default/
+##cam
+sudo modprobe uvcvideo
