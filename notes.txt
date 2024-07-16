@@ -1,3 +1,5 @@
+##conservation mode
+echo 0 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004\:00/conservation_mode                                             
 ##bluetooth 
 sudo ln -s /etc/runit/sv/bluetoothd /etc/runit/runsvdir/current/default/
 ##cam
