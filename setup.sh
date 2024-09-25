@@ -19,10 +19,10 @@ esac
 
 case $(grep vendor /proc/cpuinfo) in
 *"Intel"*)
-  UCODE"intel-ucode"
+  UCODE="intel-ucode"
   ;;
 *"Amd"*)
-  UCODE"amd-ucode"
+  UCODE="amd-ucode"
   ;;
 esac
 
