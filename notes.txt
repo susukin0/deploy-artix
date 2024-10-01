@@ -5,3 +5,6 @@ sudo ln -s /etc/runit/sv/bluetoothd /etc/runit/runsvdir/current/default/
 ##cam
 sudo modprobe uvcvideo
 ##exec 1>/dev/pts/0
+## powersave while root:
+/sbin/echo -n power | tee /sys/devices/system/cpu/cpufreq/policy?/energy_performance_preference
+/sbin/echo -n powersupersave | tee /sys/module/pcie_aspm/parameters/policy
