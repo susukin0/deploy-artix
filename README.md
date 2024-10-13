@@ -23,7 +23,7 @@ with some parts depending on the chosen configuration:
 
 ### Preinstallation
 
-* ISO downloads can be found at [artixlinux.org](https://artixlinux.org/download.php)
+* ISO downloads can be found at (INSTALL XFCE RUNIT ARTIX ISO.)[artixlinux.org](https://artixlinux.org/download.php)
 * ISO files can be burned to drives with `sudo dd if=/path/to/artix.iso of=/dev/[drive letter] bs=2M status=progress` or something like [Etcher](https://etcher.balena.io).
 * A better method these days is to use [Ventoy](https://www.ventoy.net/en/index.html).
 
@@ -38,7 +38,7 @@ sudo rfkill unblock wifi
 sudo ip link set wlan0 up
 connmanctl # In ConnMan, use respectively: `agent on`, `enable wifi`, `scan wifi`, `services`, `connect wifi_NAME`, `quit`
 ```
-3. Run the script as root:
+3. Run the script as ROOT:
 ```
 bash <(curl -s https://raw.githubusercontent.com/YurinDoctrine/deploy-artix/main/setup.sh)
 ```
