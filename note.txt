@@ -1,0 +1,16 @@
+##conservation mode
+echo 0 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004\:00/conservation_mode
+##bluetooth
+sudo ln -s /etc/runit/sv/bluetoothd /etc/runit/runsvdir/current/default/ 
+bluez-runit
+##exec 1>/dev/pts/0
+
+
+##install nvidia
+sudo vim /etc/default/grub >> nomodeset
+sudo pacman -S nvidia-dkms
+
+sudo pacman -S virtualbox libreoffice neofetch htop git gamemode
+
+flatpak install org.winehq.Wine net.lutris.Lutris com.brave.Browser com.spotify.Client com.valvesoftware.Steam
+
