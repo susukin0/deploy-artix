@@ -40,7 +40,7 @@ connmanctl # In ConnMan, use respectively: `agent on`, `enable wifi`, `scan wifi
 ```
 3. Run the script as root:
 ```
-bash <(curl -s https://raw.githubusercontent.com/YurinDoctrine/deploy-artix/main/setup.sh)
+bash <(curl -s https://raw.githubusercontent.com/susukin0/deploy-artix/main/setup.sh)
 ```
 4. Once all done, `reboot` or `poweroff` and remove the installation media then boot into Artix (post-installation networking is done with wpa_supplicant).
 
