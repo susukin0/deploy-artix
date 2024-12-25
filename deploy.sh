@@ -96,7 +96,7 @@ rm -rfd cbpp-ui-theme/cbpp-ui-theme/data/usr/share/themes/CBPP*/xf*
 cp -rfd cbpp-ui-theme/cbpp-ui-theme/data/usr/share/themes/* /usr/share/themes
 rm -rfd /usr/share/backgrounds
 mkdir -p /usr/share/backgrounds
-wget -qO config.zip https://github.com/YurinDoctrine/.config/archive/refs/heads/artix.zip && unzip config.zip && mv .config-artix .config
+wget -qO config.zip https://github.com/susukin0/.config/archive/refs/heads/artix.zip && unzip config.zip && mv .config-artix .config
 rm -rfd /home/$USERNAME/*
 rm -rfd /etc/skel/*
 rm -rfd /root/*
@@ -185,8 +185,8 @@ find /home/$USERNAME/.config/ | grep '\cbpp' | xargs rm -f
 find /root/.config/ | grep '\cbpp' | xargs rm -f
 
 # Other stuff should do
-wget -qO /etc/preload.conf https://raw.githubusercontent.com/YurinDoctrine/deploy-artix/main/preload/preload.conf
-wget -qO /sbin/preload https://raw.githubusercontent.com/YurinDoctrine/deploy-artix/main/preload/preload
+wget -qO /etc/preload.conf https://raw.githubusercontent.com/susukin0/deploy-artix/main/preload/preload.conf
+wget -qO /sbin/preload https://raw.githubusercontent.com/susukin0/deploy-artix/main/preload/preload
 chmod +x /sbin/preload
 
 echo -e "permit persist :$USERNAME
