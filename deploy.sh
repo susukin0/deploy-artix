@@ -26,10 +26,10 @@ yes "$ROOT_PASSWORD" | passwd $USERNAME
 yes "$ROOT_PASSWORD" | passwd
 
 # Pacman
-#echo -e '# Default mirrors
-#Server = https://mirrors.dotsrc.org/artix-linux/repos/$repo/os/$arch
-#Server = https://mirror.clarkson.edu/artix-linux/repos/$repo/os/$arch
-#Server = http://ftp.ntua.gr/pub/linux/artix-linux/$repo/os/$arch' >/etc/pacman.d/mirrorlist
+echo -e '# Default mirrors
+Server = https://mirrors.dotsrc.org/artix-linux/repos/$repo/os/$arch
+Server = https://mirror.clarkson.edu/artix-linux/repos/$repo/os/$arch
+Server = http://ftp.ntua.gr/pub/linux/artix-linux/$repo/os/$arch' >/etc/pacman.d/mirrorlist
 sed -i -e '/#DisableSandbox/a DisableDownloadTimeout' /etc/pacman.conf
 sed -i -e s"/\#VerbosePkgLists/VerbosePkgLists/"g /etc/pacman.conf
 sed -i -e s"/\#ParallelDownloads.*/ParallelDownloads = 3/"g /etc/pacman.conf
@@ -314,13 +314,13 @@ echo -e "options drm_kms_helper poll=0" >/etc/modprobe.d/disable-gpu-polling.con
 
 mkdir -p /etc/modules-load.d
 echo -e "bfq" >/etc/modules-load.d/bfq.conf
-#echo -e "tcp_bbr" >/etc/modules-load.d/bbr.conf
-#modprobe tcp_bbr2 && echo -e "tcp_bbr2" >/etc/modules-load.d/bbr.conf
+echo -e "tcp_bbr" >/etc/modules-load.d/bbr.conf
+modprobe tcp_bbr2 && echo -e "tcp_bbr2" >/etc/modules-load.d/bbr.conf
 
 mkdir -p /lib/sysctl.d
 echo -e "net.core.default_qdisc=fq" >/lib/sysctl.d/99-tcp.conf
-#echo -e "net.ipv4.tcp_congestion_control=bbr" >>/lib/sysctl.d/99-tcp.conf
-#modprobe tcp_bbr2 && echo -e "net.ipv4.tcp_congestion_control=bbr2" >>/lib/sysctl.d/99-tcp.conf
+echo -e "net.ipv4.tcp_congestion_control=bbr" >>/lib/sysctl.d/99-tcp.conf
+modprobe tcp_bbr2 && echo -e "net.ipv4.tcp_congestion_control=bbr2" >>/lib/sysctl.d/99-tcp.conf
 
 echo -e "kernel.core_pattern=/dev/null" >/lib/sysctl.d/50-coredump.conf
 
